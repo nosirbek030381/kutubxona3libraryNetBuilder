@@ -5,21 +5,23 @@ import Header from '../header/Header';
 import { Link } from 'react-router-dom';
 
 
-const API_URL = 'https://api.kutubxona2.librarynetbuilder.uz/books';
+const API_URL = 'https://api.kutubxona1.librarynetbuilder.uz/books';
 
 const Books_List = () => {
 	const [books, setBooks] = useState([]);
 
 	useEffect(() => {
 		fetch(API_URL)
-			.then(res => res.json())
-			.then(data => {
-				setBooks(data);
-			})
+		.then(res => res.json())
+		.then(data => {
+			setBooks(data);
+			
+		})
 			.catch(error => {
 				console.error('Error fetching data:', error);
 			});
-	}, []);
+
+	}, [books]);
 
 	return (
 		<>
@@ -32,15 +34,18 @@ const Books_List = () => {
 		<div className='book-list card container mt-3 mb-4'>	
 			<h2>Books</h2>
 			<ul>
-				{books.map((book, index) => (
+				{books.map((books, index) => (
 					<li key={index} className='book-item d-flex mt-5 mx-3 '>
-						<img src={imgR} alt={book.title} className='mx-5 ' width={120} height={100} />
+						<img src={imgR} alt={books.title} className='mx-5 ' width={120} height={100} />
 						<div className='book-details font-monospace fw-normal'>
-							<h3>{book.title}</h3>
-							<p>{book.author.name}</p>
-							<p>{book.description}</p>
+							<h3>{books.title}</h3>
+							<p>{books.author.name}</p>
+							<p>{books.description}</p>
+							<a href={books.audio}>
+								<audio src={books.audio} controls></audio>
+							</a>
 							<a
-								href=''
+								href={books.pdf}
 								target='_blank'
 								className='text-decoration-none btn btn-white btn-outline-danger'
 								rel='noopener noreferrer'

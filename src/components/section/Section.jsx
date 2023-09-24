@@ -9,8 +9,6 @@ const Section = () => {
 	const [loading, setLoading] = useState(false);
 	const [text, setText] = useState('');
 	const [res, setRes] = useState('');
-	const [selectedBook, setSelectedBook] = useState(null);
-	const { id } = useParams();
 
 	const scrollHeight = () => {
 		const booksList = document.getElementById('booksList');
@@ -33,13 +31,13 @@ const Section = () => {
 		setRes({
 			book: data[0],
 		});
-		setSelectedBook(data[0]);
 
 		setLoading(false);
 	};
 
 	useEffect(() => {
 		scrollHeight();
+		console.log(res)
 	}, [res]);
 
 	return (
