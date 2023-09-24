@@ -1,0 +1,61 @@
+.full {
+	height: 90vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+		url('https://b2bm.s3.amazonaws.com/styles/default_image/s3/the-importance-of-combining-marketing-automation-and-storytelling_1.jpg?itok=J3S2RUo8');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.preloader-box {
+	width: 100%;
+	height: 100vh;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	backdrop-filter: blur(5px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.preloader {
+	width: 50px;
+	height: 50px;
+	border: 4px solid white;
+	border-radius: 50%;
+	border-bottom: none;
+	border-top: none;
+	animation: loader 1s infinite;
+}
+
+@keyframes loader {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.fullHeight {
+	width: 100%;
+	height: 100vh;
+	background: #0f0c29;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #24243e, #302b63, #0f0c29);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.choices {
+	width: 100%;
+	max-width: 600px;
+	margin-top: 40px;
+}
+
+.form__action {
+	border-radius: 5px;
+}
+
