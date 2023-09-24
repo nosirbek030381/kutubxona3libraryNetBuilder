@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import BookDetail from '../bookDetail/bookDetail';
 import './section.css';
 
-const URL = 'https://api.kutubxona2.librarynetbuilder.uz/search?';
+const URL = 'https://api.kutubxona3.librarynetbuilder.uz/search?';
 
 const Section = () => {
 	const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ const Section = () => {
 
 	const scrollHeight = () => {
 		const booksList = document.getElementById('booksList');
-		if (res) booksList.scrollIntoView({ behavior: 'smooth' });
+		if (res) booksList.scrollIntoView({ height: '100vh' });
 	};
 
 	const handleClick = async e => {
@@ -50,7 +50,7 @@ const Section = () => {
 
 			<div className='full d-flex justify-content-center align-items-center'>
 				<div className='d-flex flex-column align-items-center'>
-					<h1 className='text-white text-center'>Library center</h1>
+					<h1 className='text-white text-center'>Urganch Yoshlar Kutubxonasi</h1>
 					<p className='text-white text-center'>Kutubxonalarimizdan qidiring</p>
 					<div className='choices'>
 						<div>
@@ -77,15 +77,18 @@ const Section = () => {
 			</div>
 
 			{res.book ? (
-				<div className='fullHeight' id='booksList'>
+				<div className='fullHeight ' id='booksList'>
 					<div className='container'>
-						<div className='row offset-1'>
+						<div className='row'>
 							{res.book.map((book, ind) => (
 								
-								<div className='col-lg-4  col-sm-4 col-md-4' key={ind}>
+								<div className='card-info  w-50 d-flex justify-content-center ' key={ind}>
 									<div className='card mt-5'>
 										<div className='card-body'>
+										{/* <h6 className='card-subtitle mb-2 text-muted'>{book.author?.name}</h6>
+											<h5 className='card-title'>{book.title}</h5> */}
 											<BookDetail 
+											bookId ={book.id}
 											title={book.title}
 											author={book.author?.name || "Unknown!!"}
 											coverImage={book.image}
@@ -93,9 +96,9 @@ const Section = () => {
 											audio={book.audio && "no audio"}
 											pdfLink={book.pdf}
 											/>
-											<Link to={`/bookDetail/${book.id}`}>
+											{/* <Link to={`/bookDetail/${book.id}`}>
 												BookDetail
-											</Link>
+											</Link> */}
 
 											<div></div>
 										</div>
