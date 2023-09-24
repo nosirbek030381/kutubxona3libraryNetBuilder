@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import BookDetail from '../bookDetail/bookDetail';
 import './section.css';
 
@@ -93,6 +93,9 @@ const Section = () => {
 											audio={book.audio && "no audio"}
 											pdfLink={book.pdf}
 											/>
+											<Link to={`/bookDetail/${book.id}`}>
+												BookDetail
+											</Link>
 
 											<div></div>
 										</div>
